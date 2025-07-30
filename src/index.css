@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&family=Special+Gothic+Expanded+One&display=swap');
+a.active hr{
+
+    display: block;
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 1s ease-out forwards;
+}
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{
+
+  font-family: Outfit
+}
+
+@media (max-width:640px){
+
+  a.active{
+
+    background-color: black;
+    color: white;
+  }
+}

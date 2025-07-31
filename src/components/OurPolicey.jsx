@@ -49,10 +49,10 @@ const OurPolicey = () => {
 
       <div className="relative z-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-gray-800 tracking-tight">
-          Why Shop with <span className="text-blue-500">Aruzz?</span>
+          Why Shop with <span className="text-gray-700">Aruzz?</span>
         </h2>
         <div className="flex justify-center mb-10">
-          <span className="block w-24 h-1 rounded-full bg-gradient-to-r from-blue-400 via-yellow-400 to-pink-400 opacity-70" />
+          <span className="block w-24 h-1 rounded-full bg-gray-300 opacity-70" />
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-10">
@@ -73,10 +73,10 @@ const OurPolicey = () => {
                 alt={item.title}
                 className="w-14 h-14 mx-auto mb-5 drop-shadow-md"
               />
-              <h3 className="text-lg font-bold text-gray-800 mb-2 tracking-wide">
+              <h3 className="text-lg font-bold text-gray-700 mb-2 tracking-wide">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-600 font-medium">{item.desc}</p>
+              <p className="text-sm text-gray-500 font-medium">{item.desc}</p>
             </motion.div>
           ))}
         </div>

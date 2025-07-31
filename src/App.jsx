@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
 import About from './pages/About';
@@ -14,13 +14,16 @@ import Loader from './components/Loader';
 import './index.css'; // ✅ Ensure styles are imported
 import Footer from './components/Footer';
 
+
 function App() {
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500); // Loader for 1.5s
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 1000); // Loader for 1s on every route change
     return () => clearTimeout(timer);
-  }, []);
+  }, [location]);
 
   if (loading) return <Loader />;
 

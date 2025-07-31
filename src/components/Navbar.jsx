@@ -1,12 +1,14 @@
+
 import React, { useContext } from 'react'
-import {assets} from '../assets/assets'
+import { assets } from '../assets/assets'
 import { Link, NavLink } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
+import SearchBar from './SearchBar';
 
 
 const Navbar = () => {
     const [visible, setVisible] = React.useState(false);
-    const { getCartCount } = useContext(ShopContext);
+    const { getCartCount, Showsearch, SetShowsearch } = useContext(ShopContext);
     const cartCount = getCartCount ? getCartCount() : 0;
 
   return (
@@ -39,10 +41,13 @@ const Navbar = () => {
         </ul>
 
 
-        <div className='flex items-center gap-5    '>
-
-            <img src={assets.search_icon} alt="ARUZZ"  className='w-5 cursor-pointer'/>
-
+        <div className='flex items-center gap-5'>
+            <img
+              src={assets.search_icon}
+              alt="Search"
+              className='w-5 cursor-pointer'
+              onClick={() => SetShowsearch && SetShowsearch(true)}
+            />
 
           {/* Profile Dropdown with Login/Signup */}
           <div className='group relative'>
@@ -102,6 +107,8 @@ const Navbar = () => {
         </div>
         
       
+    {/* SearchBar Overlay */}
+    {Showsearch && <div className="fixed inset-0 z-50 bg-black/60 flex items-start justify-center pt-10"><SearchBar /></div>}
     </div>
   )
 }

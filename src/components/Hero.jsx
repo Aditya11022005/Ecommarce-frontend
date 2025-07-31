@@ -10,7 +10,7 @@ const heroTexts = [
 const heroImages = [
   "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=90", // Hanging clothes
   "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=90", // Folded shirts
-  "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=90", // Fashionable clothing rack
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=90", // Fashion model with jacket
 ];
 
 const Hero = () => {
@@ -66,8 +66,8 @@ const Hero = () => {
         <img
           src={heroImages[currentIndex]}
           alt="Hero Slide"
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${animating ? 'scale-105 opacity-0' : 'scale-100 opacity-100'} hover:scale-105`}
-          style={{ maxHeight: '100%', minHeight: 220, borderRadius: '1.5rem' }}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${animating ? 'scale-105 opacity-0' : 'scale-100 opacity-100'} hover:scale-105 ${currentIndex === 2 ? 'shadow-2xl drop-shadow-2xl scale-[1.04] rotate-[-1.5deg]' : ''}`}
+          style={{ maxHeight: '100%', minHeight: 220, borderRadius: '1.5rem', boxShadow: currentIndex === 2 ? '0 12px 32px 0 rgba(0,0,0,0.25), 0 2px 8px 0 rgba(0,0,0,0.10)' : undefined, zIndex: 1 }}
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-3xl" />

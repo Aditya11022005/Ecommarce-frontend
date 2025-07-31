@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { maharashtraLocations } from '../assets/maharashtraLocations';
 import { ShopContext } from '../context/ShopContext';
 import { useNavigate, Link } from 'react-router-dom';
 

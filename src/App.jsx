@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
@@ -10,10 +10,20 @@ import Login from './pages/Login';
 import Product from './pages/Product';
 import Cart from './pages/Cart'; // ✅ Added import
 import Navbar from './components/Navbar';
+import Loader from './components/Loader';
 import './index.css'; // ✅ Ensure styles are imported
 import Footer from './components/Footer';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500); // Loader for 1.5s
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <Navbar />
@@ -21,8 +31,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/collection' element={<Collection />} />
         <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contect />} /> {/* ✅ Fixed spelling */}
-        <Route path='/product/:productId' element={<Product />} /> {/* ✅ Dynamic param */}
+        <Route path='/contact' element={<Contect />} />
+        <Route path='/product/:productId' element={<Product />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
         <Route path='/place-order' element={<PlaceOrder />} />

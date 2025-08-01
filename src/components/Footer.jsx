@@ -138,7 +138,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          &copy; {new Date().getFullYear()} Aruzz Clothing. All rights reserved.
+          Developed by <span className="font-semibold text-gray-700">Aditya</span>. All rights reserved. &copy; {new Date().getFullYear()}
         </motion.div>
 
         {/* Chatbot Floating Button & Window */}

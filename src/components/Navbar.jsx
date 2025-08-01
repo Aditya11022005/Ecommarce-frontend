@@ -15,7 +15,7 @@ const Navbar = () => {
     <div className='flex items-center justify-between py-5 font-medium'>
       <Link to="/" className="select-none">
         <span className="text-3xl sm:text-4xl font-extrabold tracking-tight text-black font-serif" style={{letterSpacing:'0.04em'}}>
-          Aruzz
+          Aruz
         </span>
       </Link>
 

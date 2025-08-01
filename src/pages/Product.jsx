@@ -25,6 +25,9 @@ const Product = () => {
   const [showSizeChart, setShowSizeChart] = useState(false);
   const [selectedColor, setSelectedColor] = useState('');
 
+  // Rent price: use productData.rent if available, else fallback to 60% of price, else 0
+  const rentPrice = productData && (productData.rent || (productData.price ? Math.round(productData.price * 0.6) : 0));
+
   useEffect(() => {
     const item = products.find(
       (item) => item.id === productId || item._id === productId
@@ -166,10 +169,14 @@ const Product = () => {
         {/* Right: Info */}
         <div className="space-y-4">
           <h1 className="text-2xl sm:text-3xl font-bold">{productData.name}</h1>
-          <p className="text-xl font-semibold text-green-600">
-            {currency}
-            {productData.price}
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="text-xl font-semibold text-green-600">
+              {currency}{productData.price}
+            </p>
+            <span className="text-base font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full border border-gray-300">
+              Rent: {currency}{rentPrice}
+            </span>
+          </div>
           <div className="flex gap-1">
             {'★'.repeat(4)}
             {'☆'}
@@ -226,7 +233,7 @@ const Product = () => {
               </button>
             </div>
             <div className="flex gap-3">
-              {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
+              {(productData.sizes && productData.sizes.length > 0 ? productData.sizes : ['S', 'M', 'L', 'XL', 'XXL']).map((size) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
@@ -305,7 +312,7 @@ const Product = () => {
                 ADD TO CART
               </button>
               <a
-                href={`https://wa.me/919322465522?text=Hi,%20I%20want%20to%20rent%20the%20dress:%20${encodeURIComponent(productData.name)}%20(${currency}${productData.price})`}
+                href={`https://wa.me/919322465522?text=Hi,%20I%20want%20to%20rent%20the%20dress:%20${encodeURIComponent(productData.name)}%20(${currency}${rentPrice})`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors duration-200 flex items-center gap-2"

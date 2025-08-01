@@ -10,7 +10,7 @@ const LatestCollection = () => {
 
   useEffect(() => {
     if (products.length > 0) {
-      setLatestProduct(products.slice(0, 5));
+      setLatestProduct(products.slice(0, 6));
     }
   }, [products]);
 
@@ -35,7 +35,7 @@ const LatestCollection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <Title text1="LATEST" text2="COLLECTION" />
+        <Title text1="LATEST" text2="CATEGORY" />
         <motion.p
           className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600 mt-2'
           initial={{ opacity: 0 }}

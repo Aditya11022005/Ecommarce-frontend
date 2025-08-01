@@ -52,10 +52,6 @@ const Hero = () => {
         {/* Action Buttons */}
         <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4">
           <button
-            className="font-semibold text-base px-7 py-2 rounded-full bg-gray-900 text-white shadow-lg hover:bg-gray-700 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-400"
-            onClick={() => navigate('/collection')}
-          >
-          <button
             className="font-semibold text-xs px-3 py-1 rounded-full bg-gray-900 text-white shadow-lg hover:bg-gray-700 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-400"
             onClick={() => navigate('/collection')}
           >
@@ -79,6 +75,10 @@ const Hero = () => {
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zm0-13H5V6h14v1z"/></svg>
             Book Appointment
           </a>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Hero;

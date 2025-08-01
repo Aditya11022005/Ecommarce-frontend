@@ -53,7 +53,11 @@ const LatestCollection = () => {
         animate="show"
       >
         {latestProduct.map((item, index) => (
-          <motion.div key={item._id || index} variants={itemVariants}>
+          <motion.div
+            key={item._id || index}
+            variants={itemVariants}
+            className="transition-transform duration-200 hover:scale-105 hover:ring-2 hover:ring-blue-400 hover:z-10"
+          >
             <ProductItems
               id={item._id}
               image={item.image}

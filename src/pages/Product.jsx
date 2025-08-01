@@ -386,24 +386,23 @@ const Product = () => {
               <Link
                 key={item.id || item._id}
                 to={`/product/${item.id || item._id}`}
-                className="relative group bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center p-4 overflow-hidden min-h-[270px]"
+                className="relative group rounded-2xl bg-gradient-to-br from-gray-50/80 to-white/90 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center p-5 overflow-hidden min-h-[270px] hover:scale-105 hover:ring-2 hover:ring-blue-300"
                 style={{ textDecoration: 'none' }}
               >
                 <div className="w-full flex-1 flex items-center justify-center mb-3">
                   <img
                     src={relImg}
-                    className="w-28 h-28 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-md"
+                    className="w-24 h-24 sm:w-28 sm:h-28 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-md rounded-xl bg-white"
                     alt={item.name}
                   />
                 </div>
                 <h3 className="text-base font-semibold text-gray-800 mb-1 text-center group-hover:text-blue-700 transition-colors duration-200 truncate w-full" title={item.name}>{item.name}</h3>
                 <p className="text-lg font-bold text-green-600 mb-2">{currency}{item.price}</p>
                 <button
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 bg-black text-white px-4 py-1.5 rounded-lg text-sm font-medium shadow-lg transition-all duration-300"
-                  style={{ pointerEvents: 'none' }}
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm font-medium shadow-lg transition-all duration-300 pointer-events-auto"
                   tabIndex={-1}
                 >View</button>
-                <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:bg-black/5 transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:bg-blue-50/40 transition-colors duration-300" />
               </Link>
             );
           })}

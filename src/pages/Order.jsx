@@ -1,4 +1,8 @@
+
 import React from 'react';
+import p_img1 from '../assets/p_img1.png';
+import p_img2 from '../assets/p_img2.png';
+import p_img3 from '../assets/p_img3.png';
 
 // Demo orders data (replace with real data from backend or context)
 const demoOrders = [
@@ -9,8 +13,8 @@ const demoOrders = [
     total: 2499,
     currency: '₹',
     items: [
-      { name: 'Premium T-shirt', size: 'L', qty: 2, price: 799, image: '/src/assets/p_img1.png' },
-      { name: 'Denim Jeans', size: '32', qty: 1, price: 899, image: '/src/assets/p_img2.png' },
+      { name: 'Premium T-shirt', size: 'L', qty: 2, price: 799, image: p_img1 },
+      { name: 'Denim Jeans', size: '32', qty: 1, price: 899, image: p_img2 },
     ],
     address: 'Pune, Maharashtra',
     payment: 'UPI',
@@ -22,7 +26,7 @@ const demoOrders = [
     total: 999,
     currency: '₹',
     items: [
-      { name: 'Casual Shirt', size: 'M', qty: 1, price: 999, image: '/src/assets/p_img3.png' },
+      { name: 'Casual Shirt', size: 'M', qty: 1, price: 999, image: p_img3 },
     ],
     address: 'Mumbai, Maharashtra',
     payment: 'COD',

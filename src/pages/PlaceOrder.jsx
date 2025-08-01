@@ -119,15 +119,39 @@ const PlaceOrder = () => {
               <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 01-8 0M12 3v4m0 0a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4h1a4 4 0 014 4z" /></svg>
               Shipping Address
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input name="name" value={form.name} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="Full Name*" />
-              <input name="phone" value={form.phone} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="Phone*" maxLength={10} />
-              <input name="country" value={form.country} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="Country*" />
-              <input name="state" value={form.state} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="State*" />
-              <input name="district" value={form.district} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="District*" />
-              <input name="taluka" value={form.taluka} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="Taluka*" />
-              <input name="city" value={form.city} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="City*" />
-              <input name="pincode" value={form.pincode} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-black outline-none" placeholder="Pincode*" maxLength={6} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1">
+                <label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name<span className="text-red-500">*</span></label>
+                <input id="name" name="name" value={form.name} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="Enter your full name" autoComplete="name" required />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone<span className="text-red-500">*</span></label>
+                <input id="phone" name="phone" value={form.phone} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="10-digit mobile number" maxLength={10} autoComplete="tel" required pattern="\d{10}" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="country" className="text-sm font-medium text-gray-700">Country<span className="text-red-500">*</span></label>
+                <input id="country" name="country" value={form.country} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="Country" autoComplete="country" required />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="state" className="text-sm font-medium text-gray-700">State<span className="text-red-500">*</span></label>
+                <input id="state" name="state" value={form.state} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="State" autoComplete="address-level1" required />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="district" className="text-sm font-medium text-gray-700">District<span className="text-red-500">*</span></label>
+                <input id="district" name="district" value={form.district} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="District" autoComplete="address-level2" required />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="taluka" className="text-sm font-medium text-gray-700">Taluka<span className="text-red-500">*</span></label>
+                <input id="taluka" name="taluka" value={form.taluka} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="Taluka" required />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="city" className="text-sm font-medium text-gray-700">City<span className="text-red-500">*</span></label>
+                <input id="city" name="city" value={form.city} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="City" autoComplete="address-level3" required />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="pincode" className="text-sm font-medium text-gray-700">Pincode<span className="text-red-500">*</span></label>
+                <input id="pincode" name="pincode" value={form.pincode} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="6-digit pincode" maxLength={6} autoComplete="postal-code" required pattern="\d{6}" />
+              </div>
             </div>
             <div className="flex items-center gap-2 mt-2 mb-2">
               <button type="button" onClick={handleUseLocation} className="text-blue-600 hover:underline flex items-center gap-1 text-sm">

@@ -50,7 +50,8 @@ const Order = () => {
           <div className="flex flex-col gap-8">
             {orders.map(order => (
               <div key={order.id} className="bg-white/95 backdrop-blur-md border border-gray-200 rounded-2xl shadow-xl p-6 transition-all hover:shadow-2xl">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 border-b pb-3">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                     <span className="font-semibold text-gray-700">Order ID:</span>
                     <span className="text-gray-500">{order.id}</span>
@@ -58,33 +59,37 @@ const Order = () => {
                     <span className="font-semibold text-gray-700">Date:</span>
                     <span className="text-gray-500">{order.date}</span>
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${statusColors[order.status] || 'bg-gray-100 text-gray-700'}`}>{order.status}</span>
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-sm border ${statusColors[order.status] || 'bg-gray-100 text-gray-700'}`}>{order.status}</span>
                 </div>
                 <div className="flex flex-col md:flex-row gap-8">
                   {/* Product Thumbnails */}
                   <div className="flex flex-row md:flex-col gap-2 md:gap-3 items-center md:items-start md:justify-center min-w-[60px] md:min-w-[80px]">
                     {order.items.map((item, idx) => (
-                      <img key={item.name + idx} src={item.image} alt={item.name} className="w-10 h-10 md:w-14 md:h-14 object-contain rounded-lg border bg-gray-50 shadow-sm" />
+                      <img key={item.name + idx} src={item.image} alt={item.name} className="w-12 h-12 md:w-16 md:h-16 object-contain rounded-xl border bg-gray-50 shadow" />
                     ))}
                   </div>
                   {/* Order Details */}
                   <div className="flex-1 flex flex-col gap-3">
                     {order.items.map((item, idx) => (
-                      <div key={item.name + idx} className="flex items-center gap-3">
+                      <div key={item.name + idx} className="flex items-center gap-3 border-b pb-2 last:border-b-0 last:pb-0">
                         <div className="flex-1">
-                          <div className="font-medium text-sm truncate" title={item.name}>{item.name}</div>
+                          <div className="font-semibold text-base truncate text-gray-800" title={item.name}>{item.name}</div>
                           <div className="text-xs text-gray-500">Size: {item.size}</div>
                         </div>
-                        <div className="font-semibold text-sm whitespace-nowrap">{order.currency}{item.price} x {item.qty}</div>
+                        <div className="font-semibold text-base whitespace-nowrap text-gray-700">{order.currency}{item.price} <span className="text-xs text-gray-400">x {item.qty}</span></div>
                       </div>
                     ))}
                   </div>
                   {/* Order Summary & Track */}
-                  <div className="flex flex-col gap-2 min-w-[180px] md:border-l md:pl-6 border-gray-100">
-                    <div className="text-sm text-gray-500">Delivery Address</div>
-                    <div className="text-xs text-gray-700 font-medium mb-2">{order.address}</div>
-                    <div className="text-sm text-gray-500">Payment</div>
-                    <div className="text-xs text-gray-700 font-medium mb-2">{order.payment}</div>
+                  <div className="flex flex-col gap-3 min-w-[200px] md:border-l md:pl-6 border-gray-100">
+                    <div>
+                      <div className="text-xs text-gray-500 font-medium">Delivery Address</div>
+                      <div className="text-sm text-gray-700 font-semibold mb-2">{order.address}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs text-gray-500 font-medium">Payment</div>
+                      <div className="text-sm text-gray-700 font-semibold mb-2">{order.payment}</div>
+                    </div>
                     <div className="text-base font-bold text-gray-900 mt-2">Total: {order.currency}{order.total}</div>
                     <button className="mt-3 bg-gradient-to-r from-blue-700 to-purple-600 text-white px-4 py-2 rounded-lg font-semibold shadow hover:from-blue-800 hover:to-purple-700 transition-all text-sm" onClick={() => window.alert('Order tracking coming soon!')}>Track Order</button>
                     {/* Status Stepper */}

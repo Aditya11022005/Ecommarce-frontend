@@ -146,7 +146,7 @@ const PlaceOrder = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label htmlFor="city" className="text-sm font-medium text-gray-700">City<span className="text-red-500">*</span></label>
-                <input id="city" name="city" value={form.city} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90" placeholder="City" autoComplete="address-level3" required />
+                <input id="city" name="city" value={form.city} onChange={handleChange} className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none bg-white/90 disabled:bg-gray-100 disabled:text-gray-400" placeholder="City" autoComplete="address-level3" required disabled />
               </div>
               <div className="flex flex-col gap-1">
                 <label htmlFor="pincode" className="text-sm font-medium text-gray-700">Pincode<span className="text-red-500">*</span></label>

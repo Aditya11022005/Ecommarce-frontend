@@ -13,7 +13,7 @@ const Collection = () => {
   const [category, setCategory] = useState([]);
   const [subcategory, setSubcategory] = useState([]);
   const [sortOption, setSortOption] = useState('relevent');
-  const [priceRange, setPriceRange] = useState([0, 5000]);
+  const [priceRange, setPriceRange] = useState([0, 10000]);
 
   // Toggle Category
   const toggleCategory = (e) => {
@@ -40,16 +40,37 @@ const Collection = () => {
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
-      let filtered = [...products];
 
-      // Category Filter
+      // Only show premium dresses by default (Women, premium subcategories)
+      const premiumSubcats = [
+        'Co-ord set',
+        'Maxi & Midi Dress',
+        'Gown',
+        'Indo-Western',
+        'Drape Saree',
+        'Party Wear',
+      ];
+      let filtered = products.filter(
+        p =>
+          p.category === 'Women' &&
+          p.subCategory &&
+          premiumSubcats.some(
+            sub => p.subCategory.toLowerCase() === sub.toLowerCase()
+          )
+      );
+
+      // If category filter is applied, filter further
       if (category.length > 0) {
         filtered = filtered.filter(product => category.includes(product.category));
       }
 
-      // Subcategory Filter
+      // If subcategory filter is applied, filter further (case-insensitive, partial match)
       if (subcategory.length > 0) {
-        filtered = filtered.filter(product => subcategory.includes(product.subcategory));
+        filtered = filtered.filter(product => {
+          if (!product.subCategory) return false;
+          const prodSub = String(product.subCategory).toLowerCase();
+          return subcategory.some(sel => prodSub.includes(sel.toLowerCase()));
+        });
       }
 
       // Price Range Filter
@@ -91,9 +112,7 @@ const Collection = () => {
         <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilters ? '' : 'hidden'} sm:block`}>
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
-            <label><input type="checkbox" className="w-3" value="Men" onChange={toggleCategory} /> Men</label>
             <label><input type="checkbox" className="w-3" value="Women" onChange={toggleCategory} /> Women</label>
-            <label><input type="checkbox" className="w-3" value="Kid" onChange={toggleCategory} /> Kid</label>
           </div>
         </div>
 
@@ -101,9 +120,12 @@ const Collection = () => {
         <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilters ? '' : 'hidden'} sm:block`}>
           <p className="mb-3 text-sm font-medium">TYPE</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
-            <label><input type="checkbox" className="w-3" value="Topweare" onChange={toggleSubcategory} /> Topweare</label>
-            <label><input type="checkbox" className="w-3" value="Bottomweare" onChange={toggleSubcategory} /> Bottomweare</label>
-            <label><input type="checkbox" className="w-3" value="Winterweare" onChange={toggleSubcategory} /> Winterweare</label>
+            <label><input type="checkbox" className="w-3" value="Co-ord set" onChange={toggleSubcategory} /> Co-ord set</label>
+            <label><input type="checkbox" className="w-3" value="Maxi & Midi Dress" onChange={toggleSubcategory} /> Maxi & Midi Dress</label>
+            <label><input type="checkbox" className="w-3" value="Gown" onChange={toggleSubcategory} /> Gown</label>
+            <label><input type="checkbox" className="w-3" value="Indo-Western" onChange={toggleSubcategory} /> Indo-Western</label>
+            <label><input type="checkbox" className="w-3" value="Drape Saree" onChange={toggleSubcategory} /> Drape Saree</label>
+            <label><input type="checkbox" className="w-3" value="Party Wear" onChange={toggleSubcategory} /> Party Wear</label>
           </div>
         </div>
 
@@ -115,7 +137,7 @@ const Collection = () => {
             <input
               type="range"
               min="0"
-              max="5000"
+              max="10000"
               step="100"
               value={priceRange[0]}
               onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
@@ -125,7 +147,7 @@ const Collection = () => {
             <input
               type="range"
               min="0"
-              max="5000"
+              max="10000"
               step="100"
               value={priceRange[1]}
               onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}

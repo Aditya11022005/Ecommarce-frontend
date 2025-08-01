@@ -10,7 +10,26 @@ const LatestCollection = () => {
 
   useEffect(() => {
     if (products.length > 0) {
-      setLatestProduct(products.slice(0, 6));
+      // Only show premium dresses (category: Women, subCategory in premium list)
+      const premiumSubcats = [
+        'Co-ord set',
+        'Maxi & Midi Dress',
+        'Gown',
+        'Indo-Western',
+        'Drape Saree',
+        'Party Wear',
+      ];
+      const filtered = products.filter(
+        p =>
+          p.category === 'Women' &&
+          p.subCategory &&
+          premiumSubcats.some(
+            sub => p.subCategory.toLowerCase() === sub.toLowerCase()
+          )
+      );
+      // Sort by date descending (latest first)
+      filtered.sort((a, b) => b.date - a.date);
+      setLatestProduct(filtered.slice(0, 6));
     }
   }, [products]);
 

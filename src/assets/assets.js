@@ -105,7 +105,7 @@ export const products = [
         price: 100,
         image: [p_img1],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Co-ord set",
         sizes: ["S", "M", "L"],
         date: 1716634345448,
         bestseller: true
@@ -116,8 +116,8 @@ export const products = [
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 200,
         image: [p_img2_1,p_img2_2,p_img2_3,p_img2_4],
-        category: "Men",
-        subCategory: "Topwear",
+        category: "Women",
+        subCategory: "Maxi & Midi Dress",
         sizes: ["M", "L", "XL"],
         date: 1716621345448,
         bestseller: true
@@ -128,8 +128,8 @@ export const products = [
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 220,
         image: [p_img3],
-        category: "Kids",
-        subCategory: "Topwear",
+        category: "Women",
+        subCategory: "Gown",
         sizes: ["S", "L", "XL"],
         date: 1716234545448,
         bestseller: true
@@ -140,8 +140,8 @@ export const products = [
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 110,
         image: [p_img4],
-        category: "Men",
-        subCategory: "Topwear",
+        category: "Women",
+        subCategory: "Indo-Western",
         sizes: ["S", "M", "XXL"],
         date: 1716621345448,
         bestseller: true
@@ -153,7 +153,7 @@ export const products = [
         price: 130,
         image: [p_img5],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Drape Saree",
         sizes: ["M", "L", "XL"],
         date: 1716622345448,
         bestseller: true
@@ -164,8 +164,8 @@ export const products = [
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 140,
         image: [p_img6],
-        category: "Kids",
-        subCategory: "Topwear",
+        category: "Women",
+        subCategory: "Party Wear",
         sizes: ["S", "L", "XL"],
         date: 1716623423448,
         bestseller: true
